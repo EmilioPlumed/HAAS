@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: haas_paper.aux
+Reallocating 'name_of_file' (item size: 1) to 5 items.
+Reallocating 'name_of_file' (item size: 1) to 5 items.
+The style file: tmlr.bst
+Database file #1: haas.bib
+You've used 14 entries,
+            2773 wiz_defined-function locations,
+            661 strings with 7541 characters,
+and the built_in function-call counts, 7224 in all, are:
+= -- 575
+> -- 584
+< -- 7
++ -- 197
+- -- 183
+* -- 588
+:= -- 1137
+add.period$ -- 44
+call.type$ -- 14
+change.case$ -- 102
+chr.to.int$ -- 14
+cite$ -- 28
+duplicate$ -- 294
+empty$ -- 525
+format.name$ -- 203
+if$ -- 1489
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 10
+newline$ -- 80
+num.names$ -- 56
+pop$ -- 238
+preamble$ -- 1
+purify$ -- 88
+quote$ -- 0
+skip$ -- 252
+stack$ -- 0
+substring$ -- 99
+swap$ -- 31
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 154
+warning$ -- 0
+while$ -- 47
+width$ -- 0
+write$ -- 181

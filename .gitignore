@@ -1,0 +1,44 @@
+# Claude Code local settings
+.claude/
+
+# API keys and credentials — never commit
+wandb_api_key.txt
+.env
+*.key
+secrets/
+
+# W&B run data — large and regenerable
+wandb/
+
+# W&B cached artifacts (parquet/json exports) — regenerable from W&B
+artifacts/wandb_cache/
+artifacts/trajectories/*.jsonl
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# NAS benchmark data — large binary files
+data/
+
+# Build / IDE
+.vscode/
+.idea/
+*.egg-info/
+dist/
+build/
+
+# Logs
+*.log
+tea_debug.log
+
+# OS
+.DS_Store
+Thumbs.db
