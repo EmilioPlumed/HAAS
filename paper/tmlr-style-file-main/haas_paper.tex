@@ -72,7 +72,14 @@ refine architectural proposals through natural language
 generate-critique-refine loop: an agent proposes an architecture, an evaluator
 identifies weaknesses, and the agent revises its proposal accordingly. This loop
 is intuitive and generally effective when the goal is to improve a proposal
-toward consensus quality.
+toward consensus quality. Indeed, iterative agent loops are now producing
+genuine scientific results beyond NAS: \citet{feng2026aletheia} report an
+autonomous mathematics agent solving 6 of 10 previously unpublished research
+problems, and \citet{karpathy2026autoresearch} demonstrates an agent
+autonomously discovering improvements to an already-optimised neural network
+training pipeline through hundreds of iterative code changes. In both cases,
+the agent's ability to maintain a productive search direction across many steps
+--- rather than collapsing to a safe default --- is central to the result.
 
 It is, however, systematically biased against heterodox ideas. When a critic
 challenges an architecture that violates well-established design norms --- say,
@@ -149,11 +156,22 @@ Several recent systems cast LLMs as autonomous scientists. The AI Scientist
 \citep{lu2024aiscientist} generates, evaluates, and publishes machine learning
 research end-to-end. SciAgents \citep{ghafarollahi2024sciagents} uses a
 multi-agent system to advance materials discovery through autonomous hypothesis
-generation and refinement. Both systems operate in a generate-and-validate loop
-without a commitment mechanism; hypotheses are revised when challenged. \haas{}
-focuses specifically on the \emph{commitment} phase of the scientific process ---
-the period in which a researcher has adopted a hypothesis and must explore its
-consequences rather than abandon it.
+generation and refinement. \citet{feng2026aletheia} introduce Aletheia, an
+autonomous mathematics research agent powered by Gemini~3 Deep Think that
+solved 6 of 10 open problems from the First Proof benchmark
+\citep{firstproof2026} --- a curated set of unpublished research-level
+questions contributed by professional mathematicians --- through iterative
+solution generation and formal verification. \citet{karpathy2026autoresearch}
+reports an agent that autonomously optimises a neural network training codebase
+through iterative code modification and short training runs, discovering
+genuine improvements on a pipeline that had been manually refined for years.
+\citet{knuth2026claude} documents Claude~Opus~4.6 exploring 31 formulations
+of a graph decomposition problem before arriving at a general solution that
+surprised the problem's author. In each case the agent's value comes not from
+a single inspired proposal but from sustained iterative exploration within a
+problem structure. \haas{} studies what happens when that structure is made
+explicit as a committed hypothesis: whether enforced direction improves or
+constrains the quality of what is ultimately found.
 
 \paragraph{Critique-and-refine agent loops.}
 Constitutional AI \citep{bai2022constitutional} introduced the
@@ -671,6 +689,18 @@ The \haas{} commitment is structural --- it is injected, not emergent --- but
 the \emph{effect} is analogous: the agent explores a region of the search space
 that the unconstrained consensus-seeking agent avoids, and in some cases finds
 better solutions there.
+
+The same pattern of sustained iterative exploration appears in the most capable
+autonomous research agents currently reported. Aletheia \citep{feng2026aletheia}
+solved mathematical research problems by generating candidate solutions,
+verifying correctness, and revising iteratively --- maintaining direction toward
+a solution across many steps rather than restarting. \citet{knuth2026claude}
+documents Claude~Opus~4.6 making 31 formulation attempts on a single problem
+before converging on a result the problem's author considered non-obvious. In
+both cases, persistence within a problem structure is what produces the result.
+\haas{} operationalises exactly this property, adding an explicit commitment
+constraint that prevents the agent from abandoning the structure under social
+pressure from the critic.
 
 The failure mode of semantic drift is also scientifically resonant. Scientists
 under social pressure sometimes unconsciously reframe their hypotheses to make
