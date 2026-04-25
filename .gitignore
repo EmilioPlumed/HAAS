@@ -39,6 +39,16 @@ build/
 *.log
 tea_debug.log
 
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.out
+*.log
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
 # OS
 .DS_Store
 Thumbs.db
