@@ -76,15 +76,16 @@ toward consensus quality. Indeed, iterative agent loops are now producing
 genuine scientific results beyond NAS: \citet{feng2026aletheia} report an
 autonomous mathematics agent solving 6 of 10 previously unpublished research
 problems, and \citet{karpathy2026autoresearch} demonstrates an agent
-autonomously discovering improvements to an already-optimised neural network
+autonomously discovering improvements to an already-optimized neural network
 training pipeline through hundreds of iterative code changes. In both cases,
 the agent's ability to maintain a productive search direction across many steps
 --- rather than collapsing to a safe default --- is central to the result.
 
-It is, however, systematically biased against heterodox ideas. When a critic
-challenges an architecture that violates well-established design norms --- say,
-a cell with no skip connections, or a block using only 1$\times$1 convolutions ---
-the path of least resistance is capitulation. The agent has no incentive to hold
+In open-ended design tasks like NAS, however, this same loop is systematically
+biased against heterodox ideas. When a critic challenges an architecture that
+violates well-established design norms --- say, a cell with no skip connections,
+or a block using only 1$\times$1 convolutions --- the path of least resistance
+is capitulation. The agent has no incentive to hold
 its ground; every revision that introduces skip connections, pooling, or 3$\times$3
 convolutions is rewarded by a lower critique score, regardless of whether the
 original constraint might have value in a specific regime.
@@ -162,7 +163,7 @@ solved 6 of 10 open problems from the First Proof benchmark
 \citep{firstproof2026} --- a curated set of unpublished research-level
 questions contributed by professional mathematicians --- through iterative
 solution generation and formal verification. \citet{karpathy2026autoresearch}
-reports an agent that autonomously optimises a neural network training codebase
+reports an agent that autonomously optimizes a neural network training codebase
 through iterative code modification and short training runs, discovering
 genuine improvements on a pipeline that had been manually refined for years.
 \citet{knuth2026claude} documents Claude~Opus~4.6 exploring 31 formulations
@@ -374,9 +375,9 @@ evaluator LLM on a 0--10 scale.
 
 Table~\ref{tab:phase1} shows commitment scores for both conditions across all
 seven hypotheses. The separation is unambiguous: every \haas{} run maintained a
-high commitment score throughout (mean final score 9.9/10), while every baseline
-run except sparse\_cell produced a final score $\leq 3$ (mean 2.7/10 excluding
-the artifact discussed below).
+high commitment score throughout (mean final score 9.7/10), while every baseline
+run except sparse\_cell produced a final score $\leq 3$, with mean final score
+1.5/10 across those six non-artifactual runs.
 
 \begin{table}[t]
 \caption{Phase~1 commitment scores (0--10, evaluated by independent LLM).}
@@ -396,7 +397,7 @@ pure\_conv        & 10.00 & 10 & 4.17 &  3 \\
 sparse\_cell      &  9.83 &  9 & 7.17 &  9$^\dagger$ \\
 no\_3x3           &  9.83 & 10 & 3.00 &  2 \\
 \midrule
-\textbf{Mean}     &  \textbf{9.90} & \textbf{9.71} & \textbf{4.12} & \textbf{2.71}$^\dagger$ \\
+\textbf{Mean}     &  \textbf{9.90} & \textbf{9.71} & \textbf{4.26} & \textbf{2.57}$^\dagger$ \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -629,10 +630,10 @@ abandonment. It recurred after adding a self-verification prompt instruction,
 suggesting it is a systematic property of the 9B-parameter model rather than
 a prompt-addressable issue.
 
-The synthesis step recovered correctly both times: the final selected cell
-(step~3, 92.04\%) is compliant and near-oracle. This illustrates the synthesis
-step functioning as a robust safety net: even with a mid-trajectory violation,
-the final selection is always compliant and near-optimal.
+The synthesis step recovered correctly: the final selected cell (step~3,
+92.04\%) is compliant and near-oracle. This illustrates the synthesis step
+functioning as a robust safety net: even with a mid-trajectory violation,
+the final selection is compliant and near-optimal.
 
 \paragraph{Baseline pathological cell (sparse\_cell, step 0).}
 The baseline's first proposal in the sparse\_cell run produced a cell where
@@ -698,7 +699,7 @@ a solution across many steps rather than restarting. \citet{knuth2026claude}
 documents Claude~Opus~4.6 making 31 formulation attempts on a single problem
 before converging on a result the problem's author considered non-obvious. In
 both cases, persistence within a problem structure is what produces the result.
-\haas{} operationalises exactly this property, adding an explicit commitment
+\haas{} operationalizes exactly this property, adding an explicit commitment
 constraint that prevents the agent from abandoning the structure under social
 pressure from the critic.
 
@@ -740,8 +741,9 @@ commitment more frequently.
 \subsection{Future Work}
 
 The most direct extension is testing \haas{} with frontier models such as
-Claude Sonnet 4.6 or GPT-4.1 \citep{openai2025gpt41}, which would address
-structured output fidelity limitations and potentially improve oracle proximity. A multi-hypothesis setting ---
+Claude Opus~4.7 \citep{anthropic2026opus47} or GPT-5.5 \citep{openai2026gpt55},
+which would address structured output fidelity limitations and potentially
+improve oracle proximity. A multi-hypothesis setting ---
 where multiple committed agents compete and cross-pollinate --- would more directly
 model a scientific community with competing schools of thought. Finally, extending
 the evaluation beyond NAS to domains where the search space is not pre-evaluated
@@ -842,7 +844,7 @@ Step & Accuracy & Compliant & Notes \\
 1     & 90.87\% & \cmark &\\
 2     & 90.83\% & \cmark &\\
 3     & \textbf{92.04\%} & \cmark &\\
-4     & 90.94\% & $\times$   & Transcription error; 3 active edges \\
+4     & 90.94\% & \xmark & Transcription error; 3 active edges \\
 Final & \textbf{92.04\%} & \cmark &Synthesis recovered to step 3 \\
 \bottomrule
 \end{tabular}
@@ -898,10 +900,10 @@ Final & \textbf{93.76\%} & \cmark &Synthesis selected step 3 \\
 Step & Accuracy & Compliant & Notes \\
 \midrule
 0     & 93.59\% & \cmark &Accidental compliance \\
-1     & 93.58\% & $\times$   & skip\_connect introduced \\
-2     & 93.18\% & $\times$   & \\
+1     & 93.58\% & \xmark & skip\_connect introduced \\
+2     & 93.18\% & \xmark & \\
 3     & \textbf{93.61\%} & \xmark & \\
-4     & 89.96\% & $\times$   & \\
+4     & 89.96\% & \xmark & \\
 Final & \textbf{93.61\%} & \xmark & Synthesis selected step 3 \\
 \bottomrule
 \end{tabular}
@@ -940,8 +942,8 @@ Step & Accuracy & Compliant & Notes \\
 0     & 92.96\% & \cmark &No skip (accidental) \\
 1     & \textbf{93.79\%} & \xmark & skip\_connect introduced \\
 2     & 93.45\% & \cmark &\\
-3     & 93.55\% & $\times$   & \\
-4     & 90.30\% & $\times$   & \\
+3     & 93.55\% & \xmark & \\
+4     & 90.30\% & \xmark & \\
 Final & \textbf{93.79\%} & \xmark & Synthesis selected step 1 \\
 \bottomrule
 \end{tabular}
