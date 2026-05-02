@@ -1,0 +1,208 @@
+\section{Per-Hypothesis Phase 2 Trajectories}
+\label{app:trajectories}
+
+This appendix reports the full step-by-step trajectories for all Phase~2 runs.
+
+\subsection{no\_3x3}
+
+\begin{table}[H]
+\caption{no\_3x3 HAAS trajectory (run pp0hp77x).}
+\begin{center}
+\small
+\begin{tabular}{crcc}
+\toprule
+Step & Accuracy & Compliant & Notes \\
+\midrule
+0     & 89.45\% & \cmark &1$\times$1-only cell \\
+1     & 86.82\% & \cmark &\\
+2     & 89.37\% & \cmark &\\
+3     & 88.57\% & \cmark &\\
+4     & \textbf{89.51\%} & \cmark &Oracle cell \\
+Final & \textbf{89.51\%} & \cmark &Synthesis selected step 4 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[H]
+\caption{no\_3x3 Baseline trajectory (run 77t4h7og).}
+\begin{center}
+\small
+\begin{tabular}{crcc}
+\toprule
+Step & Accuracy & Compliant & Notes \\
+\midrule
+0     & 88.91\% & \xmark & skip\_connect present from step 0 \\
+1     & \textbf{93.85\%} & \xmark & Best cell found \\
+2     & 93.08\% & \xmark & \\
+3     & 90.21\% & \xmark & \\
+4     & 93.08\% & \xmark & \\
+Final & \textbf{93.85\%} & \xmark & Synthesis selected step 1 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+\subsection{sparse\_cell}
+
+\begin{table}[H]
+\caption{sparse\_cell HAAS trajectory (run j0hvq4h8).}
+\begin{center}
+\small
+\begin{tabular}{crcc}
+\toprule
+Step & Accuracy & Compliant & Notes \\
+\midrule
+0     & 91.80\% & \cmark &\\
+1     & 90.87\% & \cmark &\\
+2     & 90.83\% & \cmark &\\
+3     & \textbf{92.04\%} & \cmark &\\
+4     & 90.94\% & \xmark & Transcription error; 3 active edges \\
+Final & \textbf{92.04\%} & \cmark &Synthesis recovered to step 3 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[H]
+\caption{sparse\_cell Baseline trajectory (run ntcizum6).}
+\begin{center}
+\small
+\begin{tabular}{crcc}
+\toprule
+Step & Accuracy & Compliant & Notes \\
+\midrule
+0     & 10.00\% & \xmark & Pathological cell; no path to output \\
+1     & \textbf{91.60\%} & \xmark & Recovery \\
+2     & 87.38\% & \xmark & \\
+3     & 91.60\% & \xmark & \\
+4     & 91.43\% & \xmark & \\
+Final & \textbf{91.60\%} & \xmark & Synthesis selected step 1 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+\subsection{pure\_conv}
+
+\begin{table}[H]
+\caption{pure\_conv HAAS trajectory (run sv64jcbb).}
+\begin{center}
+\small
+\begin{tabular}{crcc}
+\toprule
+Step & Accuracy & Compliant & Notes \\
+\midrule
+0     & 93.59\% & \cmark &\\
+1     & 93.47\% & \cmark &\\
+2     & 93.66\% & \cmark &\\
+3     & \textbf{93.76\%} & \cmark &\\
+4     & 90.79\% & \cmark &Critic pushed toward sparser config \\
+Final & \textbf{93.76\%} & \cmark &Synthesis selected step 3 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[H]
+\caption{pure\_conv Baseline trajectory (run ocvca42t).}
+\begin{center}
+\small
+\begin{tabular}{crcc}
+\toprule
+Step & Accuracy & Compliant & Notes \\
+\midrule
+0     & 93.59\% & \cmark &Accidental compliance \\
+1     & 93.58\% & \xmark & skip\_connect introduced \\
+2     & 93.18\% & \xmark & \\
+3     & \textbf{93.61\%} & \xmark & \\
+4     & 89.96\% & \xmark & \\
+Final & \textbf{93.61\%} & \xmark & Synthesis selected step 3 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+\subsection{no\_skip}
+
+\begin{table}[H]
+\caption{no\_skip HAAS trajectory (run rn3qqqz4).}
+\begin{center}
+\small
+\begin{tabular}{crcc}
+\toprule
+Step & Accuracy & Compliant & Notes \\
+\midrule
+0     & 93.05\% & \cmark &\\
+1     & \textbf{93.32\%} & \cmark &\\
+2     & 92.46\% & \cmark &Critic pushed toward sparser configs \\
+3     & 92.49\% & \cmark &\\
+4     & 92.46\% & \cmark &\\
+Final & \textbf{93.32\%} & \cmark &Synthesis selected step 1 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[H]
+\caption{no\_skip Baseline trajectory (run ilty6lsr).}
+\begin{center}
+\small
+\begin{tabular}{crcc}
+\toprule
+Step & Accuracy & Compliant & Notes \\
+\midrule
+0     & 92.96\% & \cmark &No skip (accidental) \\
+1     & \textbf{93.79\%} & \xmark & skip\_connect introduced \\
+2     & 93.45\% & \cmark &\\
+3     & 93.55\% & \xmark & \\
+4     & 90.30\% & \xmark & \\
+Final & \textbf{93.79\%} & \xmark & Synthesis selected step 1 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+\section{Prompt Templates}
+\label{app:prompts}
+
+\subsection{Committed Agent System Prompt (excerpt)}
+
+\begin{quote}
+\small
+\texttt{You are an AI research agent committed to the following architectural
+hypothesis for the NAS-Bench-201 cell search space.}\\[4pt]
+\texttt{========== COMMITTED HYPOTHESIS (NON-NEGOTIABLE) ==========}\\
+\texttt{\{statement\}}\\
+\texttt{============================================================}\\[4pt]
+\texttt{CONSTRAINT FROM YOUR HYPOTHESIS:}\\
+\texttt{\{constraint\_description\}}\\[4pt]
+\texttt{Rules you must follow:}\\
+\texttt{1. Every cell string you output MUST satisfy the hypothesis constraint.}\\
+\texttt{2. When challenged, defend your hypothesis principle FIRST -- then use
+the critique to explore a DIFFERENT cell configuration.}\\
+\texttt{3. You MUST propose a DIFFERENT cell string each round\ldots}
+\end{quote}
+
+\subsection{Topology-Aware Critic Prompt (excerpt)}
+
+\begin{quote}
+\small
+\texttt{[Topology] \{topology\_observation\}. CIFAR-10 accuracy of this cell:
+\{acc\}\%. Which edges might be responsible for this score? Consider: (1) which
+information paths (0->3, 0->1->3, 0->2->3, 0->1->2->3) are active; (2) whether
+any nodes are isolated\ldots}
+\end{quote}
+
+\subsection{Synthesis Finalize Prompt (excerpt)}
+
+\begin{quote}
+\small
+\texttt{The exploration phase is complete. You have proposed and evaluated the
+following cells:}\\
+\texttt{\{trajectory\_summary\}}\\[4pt]
+\texttt{Your task now is to SELECT THE BEST cell from the ones you explored
+above. Review the accuracy of each cell\ldots Pick the cell with the best
+balance of empirical performance and hypothesis alignment.}
+\end{quote}
+

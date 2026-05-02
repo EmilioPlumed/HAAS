@@ -1,0 +1,84 @@
+%% ============================================================
+%% HAAS — De-anonymized preprint for arXiv
+%% Compile: pdflatex haas_preprint && bibtex haas_preprint
+%%          pdflatex haas_preprint && pdflatex haas_preprint
+%% ============================================================
+\documentclass[10pt]{article}
+\usepackage[preprint]{tmlr}
+
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, shapes.geometric, positioning, fit, backgrounds, calc, decorations.pathreplacing}
+\usepackage{amssymb}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+\title{Committed to the Hypothesis: LLM Agents as Stubborn Scientists\\
+       in Neural Architecture Search}
+
+\author{\name Emilio Plumed \email emilio12000@gmail.com \\
+      \addr Independent Researcher}
+
+\def\month{05}
+\def\year{2026}
+\def\openreview{\url{https://openreview.net/forum?id=XXXX}} % update after TMLR submission
+
+\newcommand{\haas}{\textsc{HAAS}}
+\newcommand{\nasbench}{NAS-Bench-201}
+\newcommand{\cellstr}[1]{\texttt{\small #1}}
+
+\begin{document}
+
+\input{haas_body}
+
+%-----------------------------------------------------------------------
+\subsubsection*{Author Contributions}
+%-----------------------------------------------------------------------
+
+\textbf{Emilio Plumed} conceived the research direction: the framing of consensus
+bias as a systematic failure mode of LLM-guided search, the stubborn scientist
+analogy as its remedy, and the decision to validate on NAS-Bench-201 as a
+controlled benchmark. He directed the experimental programme throughout, made
+all final decisions on scope and methodology, executed all runs on local
+hardware, and validated the results.
+
+\textbf{Claude} (Anthropic) contributed substantially to the implementation and
+writing. Specific contributions include: design and implementation of the agent
+loop architecture, critic prompts, commitment mechanism, and NAS-Bench-201
+interface; analysis and documentation of experimental results across both phases;
+drafting of all manuscript sections; design of the loop diagram figure; and
+research and verification of citations. All substantive decisions --- what to
+study, what to claim, what to include or exclude --- remained with the human
+author.
+
+This paper is itself an instance of the phenomenon it studies: a committed
+research direction pursued iteratively by a human--AI collaboration, where the
+human maintained the hypothesis and the AI explored its consequences.
+
+%-----------------------------------------------------------------------
+\subsubsection*{Acknowledgments}
+%-----------------------------------------------------------------------
+
+The authors thank the NAS-Bench-201 and NATS-Bench teams
+\citep{dong2020nasbench201, dong2021nats} for maintaining a benchmark that makes
+controlled NAS experiments tractable. Experiment tracking used Weights \& Biases
+\citep{wandb}. Code and data are available at
+\url{https://github.com/EmilioPlumed/HAAS}.
+
+\bibliography{haas}
+\bibliographystyle{tmlr}
+
+\appendix
+
+\input{haas_appendix}
+
+\end{document}

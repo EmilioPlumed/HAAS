@@ -1,0 +1,50 @@
+%% ============================================================
+%% HAAS — Anonymous submission for TMLR review
+%% Compile: pdflatex haas_submission && bibtex haas_submission
+%%          pdflatex haas_submission && pdflatex haas_submission
+%% ============================================================
+\documentclass[10pt]{article}
+\usepackage{tmlr}
+
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, shapes.geometric, positioning, fit, backgrounds, calc, decorations.pathreplacing}
+\usepackage{amssymb}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+\title{Committed to the Hypothesis: LLM Agents as Stubborn Scientists\\
+       in Neural Architecture Search}
+
+\author{\name Anonymous Authors \email anonymous@anonymous.edu \\
+      \addr Anonymous Institution}
+
+\def\month{MM}
+\def\year{YYYY}
+\def\openreview{\url{https://openreview.net/forum?id=XXXX}}
+
+\newcommand{\haas}{\textsc{HAAS}}
+\newcommand{\nasbench}{NAS-Bench-201}
+\newcommand{\cellstr}[1]{\texttt{\small #1}}
+
+\begin{document}
+
+\input{haas_body}
+
+\bibliography{haas}
+\bibliographystyle{tmlr}
+
+\appendix
+
+\input{haas_appendix}
+
+\end{document}
