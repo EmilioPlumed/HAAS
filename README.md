@@ -78,11 +78,14 @@ python run_experiment.py \
 
 ## Experimental results
 
-Full trajectories and per-step metrics are logged to W&B. A public report with all Phase 2 runs is available at:
+Full trajectories and per-step metrics are logged to W&B. Public reports:
 
-> **[W&B Report — add link here once report is created]**
+| Phase | Report |
+|-------|--------|
+| Phase 1 — Behavioral validation (commitment scores, 7 hypotheses) | https://api.wandb.ai/links/emilioplumed-none/crpixgwb |
+| Phase 2 — NAS-Bench-201 (accuracy, compliance, diversity) | https://api.wandb.ai/links/emilioplumed-none/vl7aiugw |
 
-Phase 1 trajectory tables are included in `artifacts/run-*/trajectory.table.json`.
+Phase 1 trajectory tables are also included in `artifacts/run-*/trajectory.table.json`.
 
 ## Paper
 
